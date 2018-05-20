@@ -18,6 +18,7 @@ public class Teste {
     Teste(String nome, int idade, String telefone) {
         nome = this.nome;
         idade = this.idade;
+        telefone = this.telefone;
     }
 
     public static void main(String[] args) {
