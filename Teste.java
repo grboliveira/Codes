@@ -5,6 +5,22 @@
  */
 
 public class Teste {
+    String nome;
+    int idade;
+    String telefone;
+
+    Teste() {
+        nome = "";
+        idade = 0;
+        telefone = "";
+    }
+
+    Teste(String nome, int idade, String telefone) {
+        nome = this.nome;
+        idade = this.idade;
+
+    }
+
     public static void main(String[] args) {
         System.out.println("Hello World");
     }
