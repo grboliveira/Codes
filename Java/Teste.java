@@ -47,7 +47,16 @@ class Pessoa {
 
 public class Teste {
     public static void main(String[] args) {
-        Pessoa pessoa = new Pessoa("Jorge", 20, "988261885");
-        System.out.println("Olá " + pessoa.getNome() + ", você tem " + pessoa.getIdade() + " anos e seu número é: " + pessoa.getTelefone());
+        Pessoa pessoa[] = new Pessoa[5]; //Declaração de um vetor de pessoas
+        Pessoa pessoa1 = new Pessoa("Jorge", 20, "988261885");
+
+        for (int i = 0; i < 2; i++) {
+            pessoa[i] = new Pessoa(); //Inicialização do objeto
+            pessoa[i].setNome("Thiago " + i);
+            pessoa[i].setIdade(18);
+            pessoa[i].setTelefone("982951023");
+            System.out.println("Olá " + pessoa[i].getNome() + ", você tem " + pessoa[i].getIdade() + " anos e seu número é: " + pessoa[i].getTelefone());
+        }
+        System.out.println("Olá " + pessoa1.getNome() + ", você tem " + pessoa1.getIdade() + " anos e seu número é: " + pessoa1.getTelefone());
     }
 }
