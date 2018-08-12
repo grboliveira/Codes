@@ -14,7 +14,7 @@ Imprime o maior numero apos percorrer todos os
 sub-retangulos da matriz e somar os seus elementos.
  */
 void somaSubRet(int tam, int matriz[MAX][MAX]) {
-	int i,j,k,l,m,n;
+	int i, j, k, l, m, n;
 
 	int soma = 0;
 	int maior = 0;
