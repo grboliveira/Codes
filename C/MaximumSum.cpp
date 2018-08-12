@@ -25,7 +25,7 @@ void somaSubRet(int tam, int matriz[MAX][MAX]) {
 				for(l = 0; l < tam; l++) {
 					for (m = i; m <= k; m++) {
 						for (n = j; n <= l; n++) {
-							soma = soma +  matriz[m][n];
+							soma = soma + matriz[m][n];
 						}
 					}
 					//printf("%d\n",soma);
