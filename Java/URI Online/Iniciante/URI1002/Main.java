@@ -1,3 +1,9 @@
+/**
+ * URI1002
+ * @author Jorge Allan de Castro Oliveira
+ * @version 1 08/2018
+ */
+
 import java.math.*;
 import java.io.IOException;
 import java.util.Scanner;

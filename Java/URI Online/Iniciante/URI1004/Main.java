@@ -1,3 +1,9 @@
+/**
+ * URI1004
+ * @author Jorge Allan de Castro Oliveira
+ * @version 1 08/2018
+ */
+
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -7,9 +13,8 @@ public class Main {
 
         int a = scanner.nextInt();
         int b = scanner.nextInt();
-        int prod = produto(a, b);
 
-        System.out.print("PROD = "+ prod + "\n");
+        System.out.print("PROD = "+ produto(a, b) + "\n");
         scanner.close();
     }
 
