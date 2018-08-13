@@ -1,5 +1,5 @@
 /**
- * URI1004
+ * URI1004 - Produto Simples
  * @author Jorge Allan de Castro Oliveira
  * @version 1 08/2018
  */

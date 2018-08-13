@@ -1,5 +1,5 @@
 /**
- * URI1003
+ * URI1003 - Soma Simples
  * @author Jorge Allan de Castro Oliveira
  * @version 1 08/2018
  */

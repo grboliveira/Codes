@@ -1,5 +1,5 @@
 /**
- * URI1002
+ * URI1002 - Área do Círculo
  * @author Jorge Allan de Castro Oliveira
  * @version 1 08/2018
  */
