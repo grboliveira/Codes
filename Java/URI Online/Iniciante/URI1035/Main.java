@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
-        String linha = scanner.nextLine(); // nextLine pega a linha completa enquanto o next pega apenas um valor de cada vez
+        String linha = scanner.nextLine(); //nextLine pega a linha completa enquanto o next pega apenas um valor da linha de cada vez
 
         String [] array = linha.trim().split(" ");
 
