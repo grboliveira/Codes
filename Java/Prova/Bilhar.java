@@ -13,7 +13,8 @@ import java.util.Scanner;
 class Bilhar {
     public static void main(String[] args) {
         int id = 0;
-        double dist = 999999;
+        double novaDist = 0;
+        double dist = 9999;
         Scanner scanner = new Scanner(System.in);
         int c = scanner.nextInt(); // Quantidade de testes a ser executado
 
@@ -28,9 +29,10 @@ class Bilhar {
                 for(int i = 0; i < n; i++) {
                     x = scanner.nextInt();
                     y = scanner.nextInt();
+                    novaDist = calc(a, b, x, y);
 
-                    if((x > 0 && x < 1420) && (y > 0 && y < 2840) && (calc(a, b, x, y) < dist)) {
-                        dist = calc(a, b, x, y);
+                    if((x > 0 && x < 1420) && (y > 0 && y < 2840) && (novaDist < dist)) {
+                        dist = novaDist;
                         id = i + 1;
                     }
                 }
