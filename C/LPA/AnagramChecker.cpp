@@ -2,126 +2,105 @@
  * Jorge Allan de Castro Oliveira
  * 08/2018
  * Encontra todos os possíveis anagramas de uma
- * frase através das palavras do dicionário.
+ * frase através das palavras oe um dicionário.
  */
 
-#include <iostream>
 #include <string>
+#include <iostream>
 #include <vector>
 #include <sstream>
 
 using namespace std;
+const vector<int> base(26, 0);
 
-const vector<int> letterBase(26, 0);
-
-vector<int> GetLetterCounts(string word)
-{
-    vector<int> letterCounts(letterBase);
+vector<int> contLetra(string palavra) {
+    vector<int> count(base);
     
-    for (string::const_iterator iter = word.begin(); iter != word.end(); ++iter)
-    {
+    for (string::const_iterator iter = palavra.begin(); iter != palavra.end(); ++iter) {
         if (*iter != ' ')
-            ++letterCounts[*iter - 'A'];
+            ++count[*iter - 'A'];
     }
-    
-    return letterCounts;
+    return count;
 }
 
-vector<bool> GetMayBeAdded(const string& line, const vector<string>& dictionary)
-{
-    istringstream iss(line);
+vector<bool> conferirPalavras(const string& linha, const vector<string>& dicionario) {
+    istringstream iss(linha);
+    vector<string> palavra; 
+    string tmp;
     
-    vector<string> words; 
+    while (iss >> tmp) {
+        palavra.push_back(tmp);
+    }
+
+    int tamanho = dicionario.size();
+    vector<bool> conf(tamanho, true);
     
-    string temp;
-    
-    while (iss >> temp)
-        words.push_back(temp);
-    
-    int size = dictionary.size();
-    
-    vector<bool> mayBeAdded(size, true);
-    
-    for (int dic = 0; dic < size; ++dic)
-    {
-        for (int word = 0; word < words.size(); ++word)
-        {
-            if (dictionary[dic] == words[word])
-                mayBeAdded[dic] = false;
+    for (int i = 0; i < tamanho; ++i) {
+        for (int j = 0; j < palavra.size(); ++j) {
+            if (dicionario[i] == palavra[j])
+                conf[i] = false;
         }
-    }
-    
-    return mayBeAdded;
+    }  
+    return conf;
 }
 
-void FindAnagrams(int currentPos, const string& phrase, vector<int> letterCountsLeft, vector<bool> wordAdded, const vector<vector<int> >& dictionaryCounts, const vector<string>& dictionary, const vector<bool>& mayBeAdded)
+void Anagrama(int pos_atual, const string& frase, vector<int> contFrase, vector<bool> palavraAdd, const vector<vector<int> >& contDicionario, const vector<string>& dicionario, const vector<bool>& conf)
 {
-    bool allMet = true;
+    bool conferencia = true;
     
     for (int i = 0; i < 26; ++i)
     {
-        letterCountsLeft[i] -= dictionaryCounts[currentPos][i];
+        contFrase[i] -= contDicionario[pos_atual][i];
         
-        if (letterCountsLeft[i] < 0)
+        if (contFrase[i] < 0)
             return;
             
-        else if (letterCountsLeft[i] > 0)
-            allMet = false;
+        else if (contFrase[i] > 0)
+            conferencia = false;
     }
     
-    wordAdded[currentPos] = true;
+    palavraAdd[pos_atual] = true;
     
-    if (allMet)
-    {
-        cout << phrase << " =";
+    if (conferencia) {
+        cout << frase << " =";
         
-        for (int i = 0; i <= currentPos; ++i)
-        {
-            if (wordAdded[i])
-                cout << ' ' << dictionary[i];
-        }
-        
-        cout << '\n';
-    }
-    
-    else
-    {
-        for (int i = currentPos + 1; i < dictionary.size(); ++i)
-        {
-            if (mayBeAdded[i])
-                FindAnagrams(i, phrase, letterCountsLeft, wordAdded, dictionaryCounts, dictionary, mayBeAdded);
+        for (int i = 0; i <= pos_atual; ++i) {
+            if (palavraAdd[i]) {
+                cout << ' ' << dicionario[i];
+            }
+        } cout << '\n';
+    } else {
+        for (int i = pos_atual + 1; i < dicionario.size(); ++i) {
+            if (conf[i]) {
+                Anagrama(i, frase, contFrase, palavraAdd, contDicionario, dicionario, conf);
+            }       
         }
     }
 }
 
-int main()
-{
-    vector<string> dictionary;
-    vector<vector<int> > dictionaryCounts;
-    string word;
+int main() {
+    vector<string> dicionario;
+    vector<vector<int> > contDicionario;
+    string palavra;
     
-    while (cin >> word, word != "#")
-    {
-        dictionary.push_back(word);
-        dictionaryCounts.push_back(GetLetterCounts(word));
+    while (cin >> palavra, palavra != "#") {
+        dicionario.push_back(palavra);
+        contDicionario.push_back(contLetra(palavra));
     }
     
-    string phrase;
-    
+    string frase;
     cin.ignore();
     
-    while (getline(cin, phrase), phrase != "#")
-    {
-        vector<bool> wordAdded(dictionary.size(), false);
+    while (getline(cin, frase), frase != "#") {
+        vector<bool> palavraAdd(dicionario.size(), false);
         
-        vector<int> count = GetLetterCounts(phrase);
+        vector<int> contFrase = contLetra(frase);
         
-        vector<bool> mayBeAdded = GetMayBeAdded(phrase, dictionary);
+        vector<bool> conf = conferirPalavras(frase, dicionario);
         
-        for (int i = 0; i < dictionary.size(); ++i)
-        {
-            if (phrase != dictionary[i])
-                FindAnagrams(i, phrase, count, wordAdded, dictionaryCounts, dictionary, mayBeAdded);
+        for (int i = 0; i < dicionario.size(); ++i) {
+            if (frase != dicionario[i])
+                Anagrama(i, frase, contFrase, palavraAdd, contDicionario, dicionario, conf);
         }
     }
 }

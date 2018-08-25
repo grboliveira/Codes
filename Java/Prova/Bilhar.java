@@ -9,9 +9,10 @@
 
 import java.math.*;
 import java.util.Scanner;
+import java.io.IOException;
 
 class Bilhar {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         int id = 0;
         double novaDist = 0;
         double dist = 9999;
@@ -37,7 +38,7 @@ class Bilhar {
                     }
                 }
             }
-            System.out.println(id);
+            System.out.print(id+"\n");
             c--;
         }
         scanner.close();
