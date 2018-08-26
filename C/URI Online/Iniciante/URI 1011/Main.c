@@ -2,7 +2,7 @@
 #include <math.h>
 
 double calcVolume(int raio, double pi) {
-    return (4.0/3) * pi * (pow(raio, 3));
+    return (4.0/3) * pi * (pow(raio, 3)); // ponto flutuante na divisao, caso contrario o resultado sera inteiro
 }
 
 int main(int argc, char const *argv[]) {
