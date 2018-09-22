@@ -8,7 +8,7 @@
 #include <string.h>
 #include <limits.h>
 
-/* REPRESENTAÇÃO POR MATRIZ DE ADJACENCIAS:
+/* REPRESENTACAO POR MATRIZ DE ADJACENCIAS:
 A estrutura representa um grafo.
 O campo adj eh um ponteiro para a matriz de adjacencias do grafo.
 O campo visitado verifica se um vertice do grafo ja foi contado ou nao.
@@ -23,8 +23,8 @@ struct grafo {
 /* Um Grafo eh um ponteiro para um grafo, ou seja, um Grafo contem o endereco de um grafo. */
 typedef struct grafo *Grafo;
 
-/* REPRESENTAÇÃO POR MATRIZ DE ADJACÊNCIAS:
-A função iniciarMatriz() aloca uma matriz com linhas 0..r-1 e colunas 0..c-1.
+/* REPRESENTACAO POR MATRIZ DE ADJACENCIAS:
+A funcao iniciarMatriz() aloca uma matriz com linhas 0..r-1 e colunas 0..c-1.
 Cada elemento da matriz recebe valor val. */
 static int **iniciarMatriz(int r, int c, int val) {
     int **m = (int **) malloc(r * sizeof(int *));
@@ -41,8 +41,8 @@ static int **iniciarMatriz(int r, int c, int val) {
     return m;
 }
 
-/* REPRESENTAÇÃO POR MATRIZ DE ADJACÊNCIAS:
-A função iniciarGrafo() constroi um grafo com vertices 0 1 .. V-1 e nenhum arco. */
+/* REPRESENTACAO POR MATRIZ DE ADJACENCIAS:
+A funcao iniciarGrafo() constroi um grafo com vertices 0 1 .. V-1 e nenhum arco. */
 Grafo iniciarGrafo(int vertice) {
     Grafo grafo = (Grafo) malloc(sizeof *grafo);
     grafo->vertice = vertice;
@@ -57,9 +57,9 @@ Grafo iniciarGrafo(int vertice) {
     return grafo;
 }
 
-/* REPRESENTAÇÃO POR MATRIZ DE ADJACÊNCIAS:
+/* REPRESENTACAO POR MATRIZ DE ADJACENCIAS:
 A função inserirAresta() insere um arco v-w no grafo.
-A função supõe que v e w são distintos, positivos e menores que grafo->vertice.
+A função supoe que v e w são distintos, positivos e menores que grafo->vertice.
 Se o grafo já tem um arco v-w, a função não faz nada. */
 void inserirAresta(Grafo grafo, int v, int w, int peso) {
     if(grafo->adj[v][w] == 0) {
@@ -69,7 +69,7 @@ void inserirAresta(Grafo grafo, int v, int w, int peso) {
     }
 }
 
-/* REPRESENTAÇÃO POR MATRIZ DE ADJACÊNCIAS:
+/* REPRESENTACAO POR MATRIZ DE ADJACENCIAS:
 A função contarAlcance() conta o numero de vertices que sao alcancados a partir de um vertice V. */
 int contarAlcance(Grafo grafo, int vertice, int n) {
      int resultado = 0;
