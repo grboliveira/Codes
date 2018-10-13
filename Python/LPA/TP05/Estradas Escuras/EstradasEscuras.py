@@ -1,23 +1,27 @@
 import networkx as nx
 
-str = input("")
-n, m = str.split(" ")
+str = input()
+
+while str != ("0 0"):
+    n, m = str.split(" ")
         
-n = int(n)
-m = int(m)
+    n = int(n)
+    m = int(m)
     
-G = nx.Graph()
+    G = nx.Graph()
+    sumG = 0
 
-for i in range(0, m):
-    str = input("")
-    u, v, w = str.split(" ")
-    G.add_edge(int(u), int(v), weight=int(w))
+    for i in range(0, m):
+        str = input("")
+        u, v, w = str.split(" ")
+        G.add_edge(int(u), int(v), weight=int(w))
+        sumG += int(w)
     
-print(G.edges.data('weight'))
+    T = nx.minimum_spanning_tree(G)
+    sumT = 0
 
-T = nx.minimum_spanning_tree(G)
-print(T.edges.data('weight'))
+    for(u, v, wt) in T.edges.data('weight'):
+        sumT += int(wt)
 
-new_graph = nx.difference(G,T)
-print(new_graph.edges.data('weight'))
-
+    print(sumG - sumT)
+    str = input()
