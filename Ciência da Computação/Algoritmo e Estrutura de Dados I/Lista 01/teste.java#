@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class teste {
+   public static void main(String[]args) {
+      int opcao = showMenu()
+   }
+   
+   public static int showMenu() {
+      Scanner scanner = new Scanner(System.in);
+      boolean cadastro = false;
+   
+      System.out.print("---------------MENU DO PROGRAMA---------------");
+      System.out.println("\n");
+      System.out.println("0) Sair do programa");
+      if(cadastro == false) {
+         System.out.println("1) Cadastrar pessoas");
+      }
+      else {
+         System.out.println("1) Re-cadastrar pessoas");
+      }
+      if(cadastro == true) {
+         System.out.println("2) Relação de amizades");     
+         System.out.println("3) Pesquisar amigos de uma pessoa");
+         System.out.println("4) Pessoa com maior número de amigos");
+         System.out.println("5) Verificar inconsistência");
+         System.out.println("6) Verificar amizades não correspondidas");
+      }
+      System.out.println("----------------------------------------------");
+      System.out.print("Escolha sua opção: ");
+      int opcao = scanner.nextInt();
+   
+      return opcao;
+   }
+
+}
