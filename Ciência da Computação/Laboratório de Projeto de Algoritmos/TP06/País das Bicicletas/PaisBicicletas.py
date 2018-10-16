@@ -20,6 +20,8 @@ while str != ("0 0"):
         T = nx.minimum_spanning_tree(G)
 
         for j in range(0, qnt_teste):
+            num = 1;
+            print("Instancia" + num)
             str = input()
             origem, destino = str.split(" ")
             caminho = nx.shortest_path(T, int(origem), int(destino))
@@ -31,4 +33,5 @@ while str != ("0 0"):
                 if(pesoAresta > maiorPeso):
                     maiorPeso = pesoAresta
             print(maiorPeso)
+            num++
     str = input()
