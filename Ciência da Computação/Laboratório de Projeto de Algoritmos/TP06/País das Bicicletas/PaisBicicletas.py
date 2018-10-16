@@ -18,9 +18,9 @@ while str != ("0 0"):
         str = input()
         qnt_teste = int(str)
         T = nx.minimum_spanning_tree(G)
-
+        num = 1
+        
         for j in range(0, qnt_teste):
-            num = 1;
             print("Instancia" + num)
             str = input()
             origem, destino = str.split(" ")
@@ -33,5 +33,5 @@ while str != ("0 0"):
                 if(pesoAresta > maiorPeso):
                     maiorPeso = pesoAresta
             print(maiorPeso)
-            num++
+            num = num + 1
     str = input()
