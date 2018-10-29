@@ -4,9 +4,11 @@ import networkx as nx
 #plt.show()
  
 str = input()
+num = 1
+
 while str != ("0 0"):
     n, m = str.split(" ")
-
+    print("Instancia ", num)
     if((int(n) >= 0 and int(n) <= 100) and (int(m) >= 0 and int(m) <= 4950)):
         G = nx.Graph()
 
@@ -20,6 +22,7 @@ while str != ("0 0"):
         T = nx.minimum_spanning_tree(G)
 
         for j in range(0, qnt_teste):
+            
             str = input()
             origem, destino = str.split(" ")
             caminho = nx.shortest_path(T, int(origem), int(destino))
@@ -31,4 +34,5 @@ while str != ("0 0"):
                 if(pesoAresta > maiorPeso):
                     maiorPeso = pesoAresta
             print(maiorPeso)
+    num = num + 1
     str = input()
