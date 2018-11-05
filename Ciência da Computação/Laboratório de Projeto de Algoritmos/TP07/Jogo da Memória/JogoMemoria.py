@@ -12,6 +12,7 @@ dicionario = {}
 for i in range (1, contVertices + 1):
     result = int(valorVetices[i - 1])
     G.add_node(i)
+    
     if result not in dicionario:
         dicionario[result] = [i]
     else:
