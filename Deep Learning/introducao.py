@@ -1,4 +1,4 @@
-import numpy as np #
+import numpy as np # Coleção de funções matemáticas
 import sys
 import tensorflow
 import keras
