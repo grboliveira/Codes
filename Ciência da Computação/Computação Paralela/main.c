@@ -15,7 +15,7 @@ int main() {
     { 
         int tid = omp_get_thread_num(); // Lê o identificador da thread
 
-        #pragma omp for ordered schedule(dynamic) // Força os eventos dentro do loop ocorram em uma ordem prevista
+        #pragma omp for ordered schedule(dynamic) // Força que os eventos dentro do loop ocorram em uma ordem prevista
         for(i = 1; i <= 3; i++) {
            printf("[PRINT1] T%d = %d \n", tid, i);
            printf("[PRINT2] T%d = %d \n", tid, i);
