@@ -17,8 +17,10 @@ int main() {
 
         #pragma omp for ordered schedule(dynamic) // Força que os eventos dentro do loop ocorram em uma ordem prevista
         for(i = 1; i <= 3; i++) {
-           printf("[PRINT1] T%d = %d \n", tid, i);
-           printf("[PRINT2] T%d = %d \n", tid, i);
+            
+            #pragma omp ordered
+            printf("[PRINT1] T%d = %d \n", tid, i);
+            printf("[PRINT2] T%d = %d \n", tid, i);
         }
     }
 }
